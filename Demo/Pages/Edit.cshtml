@@ -1,0 +1,31 @@
+﻿@page "{bookId:int?}"
+@model Demo.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+
+
+<div class="container">
+    <form method="post">
+        <div>
+            <input type="hidden" class="form-control" id="name" asp-for="book.Id" />
+        </div>
+        <div class="mb-3">
+            <label for="name" asp-for="book.Name" class="form-label">Book name</label>
+            <input type="text" class="form-control" id="name" asp-for="book.Name" />
+            <span class="text-danger" asp-validation-for="book.Name"></span>
+        </div>
+        <div class="mb-3">
+            <label for="description" asp-for="book.Description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" asp-for="book.Description" />
+            <span class="text-danger" asp-validation-for="book.Description"></span>
+        </div>
+        <div class="mb-3">
+            <label for="price" asp-for="book.Price" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price" asp-for="book.Price" />
+            <span class="text-danger" asp-validation-for="book.Price"></span>
+        </div>
+        <button type="submit" class="btn btn-success">save</button>
+    </form>
+</div>

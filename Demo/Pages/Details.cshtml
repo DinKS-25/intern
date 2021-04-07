@@ -1,0 +1,32 @@
+﻿@page "{bookId:int}"
+@model Demo.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Book detail";
+}
+<div class="container">
+    <p>
+        Id:@Model.book.Id
+    </p>
+    <p>
+        Name:@Model.book.Name
+    </p>
+    <p>
+        Description:@Model.book.Description
+    </p>
+    <p>
+        Price:@Model.book.Price
+    </p>
+    @if (Model.message != null)
+    {
+        <div class="text-success">@Model.message</div>
+    }
+
+    <a asp-page="./Edit" asp-route-bookId="@Model.book.Id" class="btn btn-secondary">Edit</a>
+    <form method="post">
+        <button class="btn btn-danger" type="submit">
+            Delete
+        </button>
+    </form>
+</div>
+
+

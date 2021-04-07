@@ -1,0 +1,49 @@
+﻿@page
+@model Demo.Pages.BookDetailsModel
+@{
+    ViewData["Title"] = "Book list";
+}
+<div>
+    book details section
+    @if (Model.message != null)
+    {
+    <div class="text-danger">@Model.message</div>
+    }
+</div>
+<div class="container">
+    <form method="get">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="search" asp-for="bookName" class="form-control" />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary">search</button>
+                </span>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Book Details</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.Books)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price</td>
+                        <td><a asp-page="./Details" asp-route-bookId="@item.Id" class="btn btn-primary">details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a asp-page="./Edit" class="btn btn-primary">new book</a>
+</div>
